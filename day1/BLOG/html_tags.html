@@ -6,15 +6,140 @@
     <title>HTML tags</title>
 </head>
 <body>
-    <p><!--this is a comment. Comments are not displayed in the browser--></p>
-    <a href="https://www.w3schools.com/tags/tag_a.asp">w3schools a tag</a><br>
-    The <abbr title="World Health Organization">WHO</abbr> was founded in 1948
-    <address>
-    Written by <a href="mailto:santosrafaelivan0630@gmail.com">Rafael Ivan Santos</a>.<br>
-    Visit us at: San Miguel, Pasig City<br>
-    Rids.com<br>
-    Box 564, Disneyland<br>
-    Philippines
-    </address>
+    <h1>Document Structure</h1>
+    <h3>&lt;html&gt; &lt;/html&gt;</h3>
+    <p>Opens and closes an HTML document</p>
+    <h3>&lt;head&gt; &lt;/head&gt;</h3>
+    <p>
+        The first of two main sections of an HTML document. 
+        The &lt;head&gt; section is used to provide information about the document 
+        for use primarily by search engines and browsers.
+    </p>
+    <h3>&lt;title&gt; &lt;/title&gt;</h3>
+    <p>
+        The title of document. This element is nested inside the &lt;head&gt; 
+        section. In HTML5, this is the only required tag other than 
+        the DOCTYPE declaration.
+    </p>
+    <h3>&lt;body&gt; &lt;/body&gt;</h3>
+    <p>
+        The second of two main sections of an HTML document. 
+        The &lt;body&gt; section contains all the content of the web page.
+    </p>
+    <h1>Content (Container) Tags</h1>
+    <h1>&lt;h1 to h6&gt; headings.</h1> 
+    <h2>&lt;h1 to h6&gt;  headings.</h2>
+    <h3>&lt;h1 to h6&gt;  headings.</h3>
+    <h4>&lt;h1 to h6&gt;  headings.</h4>
+    <h5>&lt;h1 to h6&gt;  headings.</h5>
+    <h6>&lt;h1 to h6&gt;  headings.</h6>
+    <p>h1 is the main heading , h2 is secondary, etc</p>
+
+    <h3>&lt;p&gt; &lt;/p&gt;  tag</h3>
+    <p>for paragraphs</p>
+    
+    <div>
+        <h3>&lt;div&gt; &lt;/div&gt; tag</h3>
+        <p>a container for a block of content</p>
+    </div>
+
+    <h3>&lt;span&gt; &lt;/span&gt; tag</h3>
+    <span>
+        <p>A container for in-line content, such as content inside a paragraph.</p>
+    </span>
+
+    <h3>&lt;em&gt; &lt;/em&gt; tag</h3>
+    <em>Gives the contained text emphasis (usually as italics).</em>
+
+    <h3>&lt;strong&gt; &lt;/strong&gt; tag</h3>
+    <p>Makes the contained text <strong>bold.</strong></p>
+
+    <h3>&lt;a&gt; &lt;/a&gt; tag</h3>
+    <a href="https://www.w3schools.com/tags/tag_a.asp">Link</a>
+
+    <h3>&lt;ol&gt; &lt;/ol&gt; tag</h3>
+    <ol>
+        <li>ordered</li>
+        <li>number</li>
+        <li>list</li>
+    </ol>
+
+    <h3>&lt;ul&gt; &lt;ul&gt; tag</h3>
+    <ul>
+        <li>unordered</li>
+        <li>number</li>
+        <li>list</li>
+    </ul>
+
+    <h3>&lt;li&gt; &lt;li&gt; tag</h3>
+    <p>List item, must be nested inside a list element such as a &lt;ol&gt; or &lt;ul&gt;</p>
+    
+    <h3>&lt;!-- --&gt; tag</h3>
+    <!--comment tag, this is a comment-->
+
+    <h1>HTML5 Semantic Tags</h1>
+    <h3>&lt;header&gt; &lt;header&gt; tag</h3>
+    <p>Contains introductory content for a page (e.g., a banner), or a section of a page.</p>
+
+    <h3>&lt;nav&gt; &lt;/nav&gt; tag</h3>
+    <p>Contains navigation content, such as a website navigation menu.</p>
+
+    <h3>&lt;main&gt; &lt;/main&gt; tag</h3>
+    <p>Contains the main content of the web page.</p>
+
+    <h3>&lt;aside&gt; &lt;/aside&gt; tag</h3>
+    <p>
+        Contains content that is tangentially related to the main content of 
+        the page (often this is presented in a sidebar).
+    </p>
+
+    <h3>&lt;footer&gt; &lt;/footer&gt; tag</h3>
+    <p>
+        Contains the footer of a page, or of a section of a page. 
+        Typically the footer contains information about the content, 
+        such as the author and a copyright statement.
+    </p>
+
+    <h1>Empty (Non-Container) Tags</h1>
+    <h3>&lt;br /&gt; tag</h3>
+    <p>Line break.</p>
+    
+    <h3>&lt;img src ="image location" alt="alternate text" /&gt; tag</h3>
+    <p>Inserts an image into a web page.</p>
+    <img src="plate.png" alt="ben10" style="width: 200px;">
+
+    <h1>Tables</h1>
+    <h3>&lt;table&gt; &lt;/table&gt; tag</h3>
+    <p>Adds a table</p>
+
+    <h3>&lt;tr&gt; &lt;/tr&gt; tag</h3>
+    <p>Table row (start & end).</p>
+
+    <h3>&lt;th&gt; &lt;/th&gt; tag</h3>
+    <p>
+        When creating a table to display data, use this tag to 
+        differentiate the first row or column of cells as heading 
+        cells for all the other cells in the same column or row. 
+        Browsers typically display this element bold and centered 
+        within the table cell. The scope attribute defines whether 
+        this is a row header or column header
+    </p>
+
+    <h3>&lt;td&gt; &lt;/td&gt; tag</h3>
+    <p>Table data cell.</p>
+
+    <table style="border-collapse: collapse; width: 25%;">
+        <tr style="border: 2px solid;">
+        <th>Day</th>
+        <th>Month</th>
+        <th>Year</th>
+        </tr>
+
+        <tr style="border: 1px solid;">
+            <td>Tuesday</td>
+            <td>February</td>
+            <td>Year</td>
+        </tr>
+    </table>
 </body>
 </html>
