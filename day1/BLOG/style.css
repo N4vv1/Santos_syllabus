@@ -1,7 +1,73 @@
-h3 {
-    color: navy;
-    margin-left: 20px;
-}
 body {
-    background-color: lightblue;
-}
+      background-color: #444444;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .login-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 700px;
+      height: 400px;
+    }
+
+    .login-card h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .form-control {
+      margin-bottom: 1rem;
+    }
+
+    .login-card .btn-primary {
+      width: 100%;
+    }
+
+    .login-card .form-check {
+      margin-bottom: 1rem;
+    }
+
+    .login-card .text-center a {
+      text-decoration: none;
+      color: green;
+    }
+
+    .signup-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .signup-card h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .form-control {
+      margin-bottom: 1rem;
+    }
+
+    .signup-card .btn-primary {
+      width: 100%;
+    }
+
+    .signup-card .form-check {
+      margin-bottom: 1rem;
+    }
+
+    .signup-card .text-center a {
+      text-decoration: none;
+      color: green;
+    }
