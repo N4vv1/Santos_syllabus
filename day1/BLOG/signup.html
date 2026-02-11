@@ -11,7 +11,7 @@
 <body>
      <div class="signup-card">
         <h2>Sign Up</h2>
-        <form action="action_page.php" method="post">
+        <form action="action_page.php" method="post" id="myForm">
             <div class="row g-3">
                 <div class="col-md-6">
                     <label for="fullname" class="form-label">Full Name</label>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="con" class="form-label">Contact No.</label>
-                    <input type="tel" class="form-control" id="con" placeholder="123-4567-8910" name="con" required>
+                    <input type="tel" class="form-control" id="tel" placeholder="123-4567-8910" name="tel" required>
                 </div>
             </div>
 
@@ -74,6 +74,51 @@
                 <a href="login.html">Already have an account? Login</a>
             </div>
         </form>
+        <div id="outputContainer"></div>
     </div>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const fullname = document.getElementById('fullname').value;
+            const nname = document.getElementById('nname').value;
+            const address = document.getElementById('address').value;
+            const bdate = document.getElementById('bdate').value;
+            const tel = document.getElementById('tel').value;
+            const uname = document.getElementById('uname').value;
+            const email = document.getElementById('email').value;
+            const psw = document.getElementById('psw').value;
+
+            const outputDiv = document.getElementById('outputContainer');
+            outputDiv.innerHTML = `
+            <div style="border: 1px solid #ccc; padding: 10px; margin-top:10px;">
+                <strong>Fullname:</strong> ${fullname}<br>
+                <strong>Nickname:</strong> ${nname}<br>
+                <strong>Address:</strong> ${address}<br>
+                <strong>Birthday:</strong> ${bdate}<br>
+                <strong>Contact no:</strong> ${tel}<br>
+                <strong>Username:</strong> ${uname}<br>
+                <strong>Email:</strong> ${email}<br>
+                <strong>Password:</strong> ${psw}
+                </div>
+            `;
+        });
+
+
+        document.getElementById("myForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const formObject = {};
+
+            for (let [key, value] of formData.entries()) {
+                formObject[key] = value;
+            }
+
+            console.log(formObject);    
+        }
+    )
+    </script>
 </body>
 </html>
