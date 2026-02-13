@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript form validation</title>
+</head>
+<body>
+    <h2>JavaScript Validation</h2>
+
+    <form id="myForm" novalidate>
+        <label for="fullname">Fullname</label>
+        <input type="text" id="fullname" name="fullname" required /><br><br>
+
+        <label for="nname">Nickname</label>
+        <input type="text" id="nname" name="nname" required /><br><br>
+
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" required /><br><br>
+
+        <label for="username">Username</label>
+        <input type="text" id="uname" name="uname" required /><br><br>
+
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" required /><br><br>
+
+        <label for="psw">Password</label>
+        <input type="text" id="psw" name="psw" required /><br><br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <div id="alert" style="display: none; color: red; margin-top: 10px;"></div>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(e) {
+            const alertDiv = document.getElementById("alert");
+            alertDiv.style.display = "none"; 
+
+            const fullname = document.getElementById("fullname");
+            const nname = document.getElementById("nname");
+            const address = document.getElementById("address");
+            const uname = document.getElementById("uname");
+            const email = document.getElementById("email");
+            const psw = document.getElementById("psw");
+
+            let isValid = true;
+            let errorMessage = "";
+
+            if (!fullname.value.trim()) {
+                errorMessage = "Fullname is required.";
+                isValid = false;
+            }
+
+            if (!nname.value.trim()) {
+                errorMessage = "Nickname is required.";
+                isValid = false;
+            }
+
+            if (!address.value.trim()) {
+                errorMessage = "Address is required.";
+                isValid = false;
+            }
+
+            if (!uname.value.trim()) {
+                errorMessage = "Username is required.";
+                isValid = false;
+            }
+
+            if (!email.value.trim()) {
+                errorMessage = "Email is required.";
+                isValid = false;
+            }
+
+            if (!psw.value.trim()) {
+                errorMessage = "Password is required.";
+                isValid = false;
+            }
+
+            if (!isValid) {
+                alertDiv.textContent = errorMessage;
+                alertDiv.style.display = "block";
+                e.preventDefault();
+            }
+        }
+    );
+    </script>
+</body>
+</html>
