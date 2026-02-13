@@ -6,52 +6,43 @@
     <title>Document</title>
 </head>
 <body>
-    <form id="myForm">
-        <input type="text" id="fullname" placeholder="Fullname">
-        <input type="email" id="email" placeholder="Email">
+        <form id="myForm">
+        <input type="text" name="fullname" placeholder="Fullname">
+        <input type="email" name="email" placeholder="Email">
         <button type="submit">Add User</button>
     </form>
 
     <button onclick="printUsers()">Print Users</button>
+
     <script>
-        document.getElementById("myForm").addEventListener("submit", function(e) {
-            e.preventDefault();
+    const users = [];
 
-            const formArray = [];
+    document.getElementById("myForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const user = {};
 
-            formArray.push(document.getElementById("fullname").value);
-            formArray.push(document.getElementById("email").value);
-
-            console.log(formArray);
-        })
-
-        const users = [];
-
-        document.getElementById("myForm").addEventListener("submit", function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const user = {};
-
-            formData.forEach((value, key) => {
-                user[key] = value;
-            });
-
-            users.push(user);
-
-            this.reset();
+        formData.forEach((value, key) => {
+            user[key] = value;
         });
 
-        function printUsers() {
-            users.forEach((user, index) => {
-                console.log("User " + (index + 1));
+        users.push(user);
 
-                for (let key in user) {
-                    console.log(key + ": " + user[key]);
-                }
-                console.log("-------------");
-            });
-        }
+        this.reset();
+
+        console.log("User added:", user); // optional, for debugging
+    });
+
+    function printUsers() {
+        users.forEach((user, index) => {
+            console.log("User " + (index + 1));
+            for (let key in user) {
+                console.log(key + ": " + user[key]);
+            }
+            console.log("--------------------------");
+        });
+    }
     </script>
 </body>
 </html>

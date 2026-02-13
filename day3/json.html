@@ -10,15 +10,22 @@
     <p id="demo"></p>
 
     <script>
-        let text = '{"employees":[' +
-            '{"firstName":"John","lastName":"Doe" },' +
-            '{"firstName":"Anna","lastName":"Smith" },' +
-            '{"firstName":"Peter","lastName":"Jones" }]}';
+        let text = '{"myself":[{' +
+            '"firstName":"Ivan",' +
+            '"lastName":"Santos" ,' +
+            '"email":"ivansantos@gmail.com",'+
+            '"address":"Pasig"'+
+            '}]}';
 
             const obj = JSON.parse(text);
 
+            const person = obj.myself[0];
+
             document.getElementById("demo").innerHTML = 
-            obj.employees[1].firstName + " " + obj.employees[1].lastName;
+             person.firstName + " " + person.lastName + "<br>" +
+             person.email + "<br>" +
+             person.address;
+
     </script>
 </body>
 </html>
