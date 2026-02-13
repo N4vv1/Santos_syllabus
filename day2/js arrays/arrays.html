@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>JS Arrays</h1>
+
+    <p id="demo"></p>
+
+    <script>
+        const scooters = ["click", "aerox", "nmax", "pcx", "adv", 150];
+        document.getElementById("demo").innerHTML = scooters[4];
+
+        const student = {
+            name:"Ivan", 
+            age:"22", 
+            course:"bsit",
+            address: {
+                city: "Pasig",
+                province: "Metro Manila"
+            }
+        };
+
+        student.age = "35";
+
+        console.log(student.name);
+        console.log(student.age);
+        console.log(student.course);
+        console.log(student.address.province);
+        for (let key in student) {
+            console.log(key + ": " + student[key]);
+        }
+    </script>
+</body>
+</html>

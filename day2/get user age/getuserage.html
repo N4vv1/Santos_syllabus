@@ -21,10 +21,10 @@
             const today = new Date();
 
             let age = today.getFullYear() - bdate.getFullYear();
-            const monthDiff = today.getMonth() - bdate.getMonth();
+            const dayDiff = today.getDay() - bdate.getDay();
 
-            if (monthDiff < 0 || 
-               (monthDiff === 0 && today.getDate() < bdate.getDate())) {
+            if (dayDiff < 0 || 
+               (dayDiff === 0 && today.getDate() < bdate.getDate())) {
                 age--;
             }
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="demo"></p>
+
+    <script>
+        let sum = 0;
+        const numbers = [67, 67, 67, 9];
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        fruits.splice(2,0, "Kiwi", "Lemon");    
+        numbers.forEach(myFunctionn);
+
+        document.getElementById("demo").innerHTML = fruits;
+
+        function myFunction(item) {
+            sum += item;
+        }
+
+        function myFunctionn(item, index, arr) {
+            arr[index] = item * 10;
+        }
+
+
+    </script>
+</body>
+</html>

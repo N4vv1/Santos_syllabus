@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" id="fullname" placeholder="Fullname">
+        <input type="email" id="email" placeholder="Email">
+        <button type="submit">Add User</button>
+    </form>
+
+    <button onclick="printUsers()">Print Users</button>
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const formArray = [];
+
+            formArray.push(document.getElementById("fullname").value);
+            formArray.push(document.getElementById("email").value);
+
+            console.log(formArray);
+        })
+
+        const users = [];
+
+        document.getElementById("myForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const user = {};
+
+            formData.forEach((value, key) => {
+                user[key] = value;
+            });
+
+            users.push(user);
+
+            this.reset();
+        });
+
+        function printUsers() {
+            users.forEach((user, index) => {
+                console.log("User " + (index + 1));
+
+                for (let key in user) {
+                    console.log(key + ": " + user[key]);
+                }
+                console.log("-------------");
+            });
+        }
+    </script>
+</body>
+</html>
