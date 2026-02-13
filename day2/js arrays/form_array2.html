@@ -1,11 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+<form onsubmit="handleFormSubmission(event)">
+    <input type="text" id="name" placeholder="Enter Name"><br><br>
+    <input type="email" id="email" placeholder="Enter Email"><br><br>
+    <input type="date" id="dob"><br><br>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+function calculateAge(bdate) {
+    const birthDate = new Date(bdate);
+    const today = new Date();
+
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+    if (monthDiff < 0 || 
+       (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+
+    return age;
+}
+
+function handleFormSubmission(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const dob = document.getElementById("dob").value;
+
+    if (!name || !email || !dob) {
+        alert("All fields are required.");
+        return;
+    }
+
+    const age = calculateAge(dob);
+
+    if (age < 18) {
+        alert("You must be 18 years old.");
+        return;
+    }
+
+    alert(`Form submitted!\nName: ${name}\nAge: ${age}`);
+}
+</script>
