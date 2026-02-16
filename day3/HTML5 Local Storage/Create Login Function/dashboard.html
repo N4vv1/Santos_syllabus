@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Welcome!</h1>
+    <button id="logoutBtn">Logout</button>
+    <button onclick="document.location='login.html'">Login</button>
+    <button onclick="document.location='signup.html'">Signup</button>
+
+    <script>
+      document
+        .getElementById("logoutBtn")
+        .addEventListener("click", function () {
+          localStorage.setItem("isLoggedIn", "false");
+          window.location.href = "login.html";
+        });
+    </script>
+  </body>
+</html>

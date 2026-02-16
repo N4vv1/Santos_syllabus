@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign-up</title>
+  </head>
+  <body>
+    <!-- signup.html -->
+    <form id="signupForm">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required /><br><br>
+      <button type="submit">Sign Up</button>
+      <button onclick="document.location='login.html'">Login</button>
+    </form>
+
+    <script>
+      window.addEventListener("load", function () {
+        if (localStorage.getItem("isLoggedIn") === "true") {
+          window.location.href = "dashboard.html";
+        }
+      });
+    </script>
+
+    <script>
+      document
+        .getElementById("signupForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          // Save credentials in localStorage
+          const user = { username, password };
+          localStorage.setItem("user", JSON.stringify(user));
+
+          alert("Signup successful!");
+          window.location.href = "login.html"; // redirect to login page
+        });
+    </script>
+  </body>
+</html>

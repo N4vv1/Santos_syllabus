@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <body>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required /><br><br>
+      <button type="submit">Login</button>
+      <button onclick="document.location='signup.html'">Signup</button>
+    </form>
+
+    <script>
+      window.addEventListener("load", function () {
+        if (localStorage.getItem("isLoggedIn") === "true") {
+          window.location.href = "dashboard.html";
+        }
+      });
+    </script>
+
+    <script>
+      window.addEventListener("load", function () {
+        // Redirect if already logged in
+        if (localStorage.getItem("isLoggedIn") === "true") {
+          window.location.href = "dashboard.html";
+        }
+      });
+
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          const user = JSON.parse(localStorage.getItem("user"));
+
+          if (
+            user &&
+            user.username === username &&
+            user.password === password
+          ) {
+            localStorage.setItem("isLoggedIn", "true"); // set login status
+            alert("Login successful!");
+            window.location.href = "dashboard.html";
+          } else {
+            alert("Invalid credentials!");
+          }
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+    <p id="demo2"></p>
+
+    <script>
+      const text = '{"name":"Ivan", "age":22, "city":"Pasig"}';
+      const myObj = JSON.parse(text);
+      document.getElementById("demo").innerHTML =
+        myObj.name + ", " + myObj.age + "<br>" + myObj.city;
+
+      const car = '["Ferrari", "Redbull", "Mclaren", "Mercedes"]';
+      const myArr = JSON.parse(car);
+      document.getElementById("demo2").innerHTML = myArr[0];
+    </script>
+  </body>
+</html>

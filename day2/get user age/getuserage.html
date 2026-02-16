@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Age Calculator</title>
+    <title>Function</title>
 </head>
 <body>
     <form id="myForm">
@@ -12,11 +12,8 @@
         <p id="ageResult"></p>
     </form>
 
-    <script>
-        document.getElementById("myForm").addEventListener("submit", function(e) {
-            e.preventDefault();
-
-            const birthdateInput = document.getElementById('bdate').value;
+    <script>    
+        function calculateAge(birthdateInput) {
             const bdate = new Date(birthdateInput);
             const today = new Date();
 
@@ -24,9 +21,18 @@
             const monthDiff = today.getMonth() - bdate.getMonth();
 
             if (monthDiff < 0 || 
-               (monthDiff === 0 && today.getDate() < bdate.getDate())) {
+            (monthDiff === 0 && today.getDate() < bdate.getDate())) {
                 age--;
             }
+
+            return age;
+        }
+
+        document.getElementById("myForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const birthdateInput = document.getElementById('bdate').value;
+            const age = calculateAge(birthdateInput);
 
             document.getElementById('ageResult').textContent = `Age: ${age} years`;
         });
