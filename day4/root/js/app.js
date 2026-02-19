@@ -10,28 +10,30 @@ $(document).ready(function () {
     Path.map("#/login").to(function () {
       $("#canvas").html($.Mustache.render("loginPage"));
 
-      $("#loginForm")
-        .off()
-        .on("submit", function (e) {
+      $("#loginForm").off().on("submit", function (e) {
           e.preventDefault();
 
-          const uname = this.uname.value.trim();
-          const psw = this.psw.value;
+          $.ajax({
+            url: "../api/functions/login.php",
+            type: "POST",
+            data: {
+              uname: this.uname.value.trim(),
+              psw: this.psw.value
+            },
+            success: function(res){
 
-          let users = JSON.parse(localStorage.getItem("users") || "[]");
+              res = res.trim();
 
-          const found = users.find(
-            (u) => (u.uname === uname || u.email === uname) && u.psw === psw,
-          );
-
-          if (!found) {
-            alert("Invalid username/email or password");
-            return;
-          }
-
-          localStorage.setItem("sessionUser", JSON.stringify(found));
-
-          location.hash = "#/home";
+              if(res === "ok"){
+                location.hash = "#/home";
+              }else{
+                alert("Invalid username/email or password");
+              }
+            },
+            error:function(){
+              alert("Server error");
+            }
+          });
         });
     });
 
@@ -39,52 +41,123 @@ $(document).ready(function () {
     Path.map("#/signup").to(function () {
       $("#canvas").html($.Mustache.render("signupPage"));
 
-      $("#myForm")
-        .off()
-        .on("submit", function (e) {
+      $("#myForm").off().on("submit", function (e) {
           e.preventDefault();
 
           const fd = new FormData(this);
-          const user = {};
 
-          for (const [k, v] of fd.entries()) user[k] = v.trim();
+          $.ajax({
+            url: "../api/functions/signup.php",
+            type: "POST",
+            data: fd,
+            processData: false,
+            contentType: false,
 
-          let users = JSON.parse(localStorage.getItem("users") || "[]");
+            success: function(res){
+              res = res.trim();
 
-          if (users.find((u) => u.uname === user.uname)) {
-            alert("Username already exists");
-            return;
-          }
+              if(res === "ok"){
+                alert("Signup successful!");
+                location.hash = "#/login";
+              }
+              else if(res === "exists"){
+                alert("Username or email already exists");
+              }
+              else{
+                alert("Signup failed: " + res);
+                console.log(res);
+              }
+            },
 
-          users.push(user);
-          localStorage.setItem("users", JSON.stringify(users));
+            error: function(){
+              alert("Server error");
+              console.log(xhr.responseText);
+            }
+          });
 
-          alert("Signup successful!");
-          location.hash = "#/login";
         });
+
     });
 
     /* HOME */
     Path.map("#/home").to(function () {
-      const session = localStorage.getItem("sessionUser");
 
-      if (!session) {
-        location.hash = "#/login";
-        return;
-      }
+      $.get("../api/functions/session.php", function(res){
 
-      const user = JSON.parse(session);
+        if(res.trim() !== "ok"){
+          location.hash = "#/login";
+          return;
+        }
 
-      $("#canvas").html($.Mustache.render("homePage", user));
+        $("#canvas").html($.Mustache.render("homePage"));
 
-      $("#logoutBtn").click(function (e) {
-        e.preventDefault();
-        localStorage.removeItem("sessionUser");
-        location.hash = "#/login";
+        $("#logoutBtn").off().click(function(e){
+          e.preventDefault();
+
+          $.get("../api/functions/logout.php", function(){
+            location.hash="#/login";
+          });
+        });
       });
     });
 
-    Path.root("#/login");
-    Path.listen();
+  /* ✅ ACCOUNT ROUTE MUST BE INSIDE HERE */
+  Path.map("#/account").to(function () {
+
+    $.get("../api/functions/session.php", function(res){
+
+      if(res.trim()!=="ok"){
+        location.hash="#/login";
+        return;
+      }
+
+      $("#canvas").html($.Mustache.render("accountPage"));
+
+      $.get("../api/functions/get_user.php", function(user){
+
+        let u = JSON.parse(user);
+
+        $("#acc_fullname").val(u.fullname);
+        $("#acc_nickname").val(u.nickname);
+        $("#acc_address").val(u.address);
+        $("#acc_birthday").val(u.birthday);
+        $("#acc_phone").val(u.phone);
+        $("#acc_username").val(u.username);
+        $("#acc_email").val(u.email);
+
+      });
+
+      $("#accountForm").on("submit", function(e){
+        e.preventDefault();
+
+        $.post("../api/functions/update_user.php",
+          $(this).serialize(),
+          function(res){
+            $("#accountMsg").html(
+              "<div class='alert alert-info'>"+res+"</div>"
+            );
+          }
+        );
+      });
+
+      $("#deleteAccountBtn").click(function(){
+
+        if(!confirm("Delete your account permanently?")) return;
+
+        $.post("../api/functions/delete_user.php", function(){
+          location.hash="#/signup";
+        });
+
+      });
+
+    });
+
   });
+
+
+  /* START ROUTER AFTER ALL MAPS */
+  Path.root("#/login");
+  Path.listen();
+
+});
 });

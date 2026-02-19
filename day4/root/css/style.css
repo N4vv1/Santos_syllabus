@@ -84,14 +84,17 @@ body .home {
   padding: 0;
 }
 .home .header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  left: 0;
-  overflow: auto;
-  background-color: darkgreen;
-  padding: 10px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  .header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: darkgreen;
+    padding: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow: visible;
+    z-index: 1050;
+}
 }
 .home .header a {
   float: left;

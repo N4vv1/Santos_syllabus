@@ -1,5 +1,5 @@
-<?php
-require 'db.php';
+<?php 
+require_once 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -7,7 +7,7 @@ $fullname = $_POST['fullname'];
 $nickname = $_POST['nname'];
 $address = $_POST['address'];
 $birthday = $_POST['bdate'];
-$phone = $_POST['phone'];
+$phone = $_POST['tel'];
 $username = $_POST['uname'];
 $email = $_POST['email'];
 $password = $_POST['psw'];
@@ -31,9 +31,9 @@ $stmt->bind_param(
 );
 
 if ($stmt->execute()) {
-    echo "User registered successfully!";
+    echo "ok";
 } else {
-    echo "Error: " . $stmt-> error;
+    echo "error";
 }
 
 $stmt->close();
