@@ -178,7 +178,7 @@ $app->post('/update-user', function($req,$res) use ($pdo){
         ]);
     }
 
-    $res->getBody()->write("updated");
+    $res->getBody()->write("Updated Successfully!");
     return $res;
 });
 

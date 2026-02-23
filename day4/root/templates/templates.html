@@ -1,4 +1,5 @@
 <script id="signupPage" type="text/html">
+<div id="signup">
   <div class="signup-card">
     <h2>Sign Up</h2>
 
@@ -66,40 +67,30 @@
       </div>
     </form>
   </div>
+</div>
 </script>
 
 <script id="loginPage" type="text/html">
-  <div class="login-card">
-    <h2>Login</h2>
-    <form id="loginForm">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Username or Email"
-        name="uname"
-        required
-      />
-      <input
-        type="password"
-        class="form-control"
-        placeholder="Password"
-        name="psw"
-        required
-      />
+<div id="login">
+<div class="container d-flex justify-content-center align-items-center min-vh-100 py-10">
+  <div class="login-card w-100" style="max-width:500px;">
 
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          name="remember"
-          id="remember"
-          checked
-        />
+    <h2>Login</h2>
+
+    <form id="loginForm">
+
+      <input type="text" class="form-control mb-3" placeholder="Username or Email" name="uname" required/>
+
+      <input type="password" class="form-control mb-3" placeholder="Password" name="psw" required/>
+
+      <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" name="remember" id="remember" checked/>
         <label class="form-check-label" for="remember">Remember me</label>
       </div>
 
-      <button type="submit" class="btn btn-primary">Login</button><br /><br />
-      <button onclick="history.back()" type="button" class="btn btn-secondary">
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+
+      <button onclick="history.back()" type="button" class="btn btn-secondary w-100 mt-2">
         Back
       </button>
 
@@ -107,64 +98,84 @@
         <a href="#">Forgot password?</a> |
         <a href="#/signup">Sign up</a>
       </div>
+
     </form>
+
   </div>
+</div>
+</div>
+
 </script>
 
 <script id="homePage" type="text/html">
   <div class="home">
-    <div class="header">
-      <a href="#/home" class="Logo">Food Blog</a>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a href="#/home" class="navbar-brand logo-btn">FTrips</a>
 
-      <div class="header-right">
-        <div class="dropdown">
-          <a class="active" href="#/home">Home</a>
-          <a href="#/home/foods">Dishes</a>
-          <a href="#/home/footer">Contact</a>
-          <a href="#/home/about">About</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+            aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+      </button>
 
-          <button
-            class="btn btn-primary dropdown-toggle"
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            id="dropdown"
-          >
-            Profile
-          </button>
+      <div class="collapse navbar-collapse link-btn" id="mainNav">
 
-          <ul class="dropdown-menu">
-            <li>
-              <a class="dropdown-item" href="#/account" id="accBtn">Account</a>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#/home">Home</a>
             </li>
-            <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
-          </ul>
-        </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#/home/foods">Dishes</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#/home/footer">Contact</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#/home/about">About</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle profile-btn" href="#" role="button" data-bs-toggle="dropdown">
+                    Profile
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#/account" id="accBtn">Account</a></li>
+                    <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+
       </div>
     </div>
+    </nav>
 
     <div class="home" id="home">
       <div class="transbox">
         <h1>Discover Delicious Foods Around the World</h1>
         <p>
-          Explore popular dishes, learn their origins, and satisfy your
+          Explore popular dishes, learn their   origins, and satisfy your
           curiosity about global cuisine.
         </p>
       </div>
     </div>
 
     <div class="food" id="foods">
-      <h1>Dishes</h1>
+        <div class="container">
+      <h1 class="text-center mb-5">Dishes</h1>
 
-      <div class="item">
+      <div class="row align-items-center mb-5 fw-bold">
+      <div class="col-md-4 text-center">
         <img
           src="./images/sushi.jpg"
           alt="sushi"
           class="rounded-circle"
-          width="300"
-          height="300"
-        />
-        <div>
+          style="max-width: 300px;"/>
+      </div>
+        <div class="col-md-8">
           <h3>Sushi</h3>
           <p>
             Sushi is a traditional Japanese dish made with vinegared rice and
@@ -176,15 +187,15 @@
         </div>
       </div>
 
-      <div class="item">
+      <div class="row align-items-center mb-5 fw-bold">
+      <div class="col-md-4 text-center">
         <img
           src="./images/pizza.jpg"
           alt="pizza"
           class="rounded-circle"
-          width="300"
-          height="300"
-        />
-        <div>
+          style="max-width: 300px;"/>
+      </div>
+        <div class="col-md-8">
           <h3>Pizza</h3>
           <p>
             Pizza is a popular Italian dish made with a flat bread dough topped
@@ -196,15 +207,15 @@
         </div>
       </div>
 
-      <div class="item">
+      <div class="row align-items-center mb-5 fw-bold">
+      <div class="col-md-4 text-center">
         <img
           src="./images/burger.jpg"
           alt="burger"
           class="rounded-circle"
-          width="300"
-          height="300"
-        />
-        <div>
+          style="max-width: 300px;"/>
+        </div>
+        <div class="col-md-8">
           <h3>Hamburger</h3>
           <p>
             A hamburger is a popular American fast food made with a grilled beef
@@ -213,6 +224,7 @@
             mayonnaise.
           </p>
         </div>
+      </div>
       </div>
     </div>
 
@@ -240,17 +252,61 @@
     </div>
   </div>
 
-  <footer id="footer">
-    <p>FB: Ivan Santos</p>
-    <p>(+63) 9338202892</p>
-    <p>
-      Email:
-      <a href="mailto:hege@example.com"> santosrafaelivan0630@gmail.com </a>
-    </p>
+  <footer class="fw-bold fs-5 bg-dark" id="footer">
+    <a href="https://www.facebook.com/naviwithahoodie/"><i class="bi bi-facebook">FTrips</i></a>
+    <a href="https://www.instagram.com/naviwithahoodie/"><i class="bi bi-instagram">FTrips</i></a><br>
+    <i class="bi bi-telephone"> (+63)9338202892</i><br>
+    <i class="bi bi-envelope"> santosrafaelivan0630@gmail.com</i>
+    <p>© 2026 FTrips. All rights reserved.</p>
   </footer>
 </script>
 
 <script id="accountPage" type="text/html">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a href="#/home" class="navbar-brand logo-btn">FTrips</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+            aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse link-btn" id="mainNav">
+
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#/home">Home</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#/home/foods">Dishes</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#/home/footer">Contact</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#/home/about">About</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle profile-btn" href="#" role="button" data-bs-toggle="dropdown">
+                    Profile
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#/account" id="accBtn">Account</a></li>
+                    <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+
+      </div>
+    </div>
+    </nav>
+
+<div id="account">
   <div class="account-card container mt-4">
     <div class="signup-card">
       <h2>My Account</h2>
@@ -312,7 +368,7 @@
 
         <div class="row g-3 mt-1">
           <div class="col-md-6">
-            <label class="form-label">Username</label>
+            <label class="form-label">Username</label>  
             <input
               type="text"
               name="username"
@@ -344,9 +400,8 @@
           <input type="password" name="confirm_password" class="form-control" />
         </div>
 
-        <div class="mt-4 d-flex gap-2">
+        <div class="mt-4 gap-2">
           <button type="submit" class="btn btn-primary">Save Changes</button>
-          <a href="#/home" class="btn btn-secondary">Back</a>
           <button
             type="button"
             id="deleteAccountBtn"
@@ -358,4 +413,5 @@
       </form>
     </div>
   </div>
+</div>
 </script>
