@@ -1,0 +1,264 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#login {
+  background-image: url(../images/home.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.login-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  margin-top: 30vh;
+  width: 90%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.login-card h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.form-control {
+  margin-bottom: 1rem;
+}
+
+.login-card .btn-primary {
+  width: 100%;
+}
+
+.login-card .btn-secondary {
+  width: 100%;
+}
+
+.login-card .form-check {
+  margin-bottom: 1rem;
+}
+
+.login-card .text-center a {
+  text-decoration: none;
+  color: green;
+}
+#signup {
+  background-image: url(../images/home.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.signup-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 10vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.signup-card h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.form-control {
+  margin-bottom: 1rem;
+}
+
+.signup-card .btn-primary {
+  width: 150px;
+}
+
+.signup-card .form-check {
+  margin-bottom: 1rem;
+}
+
+.signup-card .text-center a {
+  text-decoration: none;
+  color: green;
+}
+
+body .home {
+  background-color: #444444;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+.home .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow: visible;
+    z-index: 1050;
+  }
+.home .header a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 25px;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+.header-right {
+  float: right;
+  margin-right: 100px;
+}
+.home h1 {
+  text-align: center;
+}
+footer{
+  text-align:center;
+  padding:10px;
+  color:white;
+}
+
+.home {
+  text-align: center;
+  margin-bottom: 100px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-image: url(../images/home.jpg);
+  background-size: cover;
+  min-height: 100vh;
+}
+#home {
+  padding-top: 120px;
+}
+.food {
+  max-width: 1500px;
+  margin: auto;
+  background-color: #444444;
+  padding: 50px;
+  border-radius: 10px;
+  margin-top: 120px;
+  margin-bottom: 120px;
+}
+.food h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#foods {
+  padding-top: 120px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 120px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 400;
+}
+
+.item img {
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 50px;
+}
+.explore-btn:hover {
+  background-color: green;
+}
+.transbox {
+  background-color: rgba(56, 51, 51, 0.888);
+  margin: 300px auto;
+  padding: 20px;
+  max-width: 1500px;
+  border-radius: 10px;
+}
+#about {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 120px;
+  margin-bottom: 120px;
+}
+#dropdown {
+  margin-top: 7px;
+  background: #ff7a18;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.dropdown-menu {
+  background:black !important;
+  border-radius: 12px;
+  border: none;
+  padding: 7px 0;
+  animation: dropdownFade 0.25s ease;
+  
+}
+.dropdown-menu .dropdown-item {
+  color: white !important;
+  font-size: 20px;
+}
+.dropdown-item:hover{
+    background: #333;
+    color: inherit !important;
+}
+.about-btn{
+  background:#ff7a18;
+  border:none;
+  padding:10px 22px;
+  border-radius:25px;
+  font-weight:600;
+  color:white;
+  transition:0.3s;
+  margin-top:20px;
+  margin-bottom: 50px;
+}
+.aboutSection {
+  padding-bottom: 120px !important;
+  align-items: center !important;
+}
+.profile-btn {
+  border:none;
+  padding:8px 18px;
+  border-radius:25px;
+  font-weight:600;
+  transition:0.3s;
+  color:white !important;
+}
+.food-btn {
+  color: white !important;
+}
+.link-btn .nav-link {
+  color: white !important;
+}
+.navbar .nav-link {
+  font-size: 20px
+}
+
+#account {
+  background: url("../images/home.jpg") center/cover no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.navbar {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
