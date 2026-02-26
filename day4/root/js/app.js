@@ -16,7 +16,7 @@ $(document).ready(function () {
           e.preventDefault();
 
           $.ajax({
-            url: "/Santos_syllabus/day4/api/login",
+            url: " /Santos_syllabus/day4/api/login",
             type: "POST",
 
             data: {
